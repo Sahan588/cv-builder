@@ -27,7 +27,7 @@ function Home() {
     });
 };
 
-  const templates = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const templates = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16  ]; // Template IDs
 
   return (
     <div className="min-h-screen bg-white text-slate-900 pb-20">
@@ -52,29 +52,37 @@ function Home() {
       </div>
 
       {/* Templates Section */}
-      <div className="p-6 md:p-12">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {templates.map((id) => (
-            <motion.div 
-              key={id} 
-              // Hover Effect (මවුස් එක ගියාම පොඩ්ඩක් උඩට එසවෙනවා)
-              whileHover={{ y: -10, transition: { duration: 0.2 } }}
-              className="bg-white border p-4 rounded-2xl shadow-sm hover:shadow-xl transition-all"
-            >
-              <div className="aspect-[3/4] bg-slate-50 rounded-xl mb-4 flex items-center justify-center font-bold text-slate-400">CV {id}</div>
-              <h3 className="font-semibold text-sm">Layout {id}</h3>
-              <p className="text-md font-bold text-indigo-600 mb-3">{prices[id % 3]}</p>
-              
-              <button 
-                onClick={() => { setSelectedLayout(id); setShowModal(true); }}
-                className="w-full py-2 bg-slate-900 text-white rounded-lg text-xs font-bold hover:bg-indigo-600 transition-all"
-              >
-                Order Now
-              </button>
-            </motion.div>
-          ))}
+<div className="p-6 md:p-12">
+  <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    {templates.map((id) => (
+      <motion.div 
+        key={id} 
+        whileHover={{ y: -10, transition: { duration: 0.2 } }}
+        className="bg-white border p-4 rounded-2xl shadow-sm hover:shadow-xl transition-all"
+      >
+        {/* මෙතන පින්තූරෙ දානවා */}
+        <div className="aspect-[3/4] bg-slate-50 rounded-xl mb-4 overflow-hidden">
+          <img 
+              src={id < 10 ? `/Cv_00${id}.PNG` : `/Cv_01${id - 10}.PNG`} 
+              alt={`CV Template ${id}`} 
+              className="w-full h-full object-cover"
+        />
+        
         </div>
-      </div>
+        
+        <h3 className="font-semibold text-sm">Layout {id}</h3>
+        <p className="text-md font-bold text-indigo-600 mb-3">{prices[id % 3]}</p>
+        
+        <button 
+          onClick={() => { setSelectedLayout(id); setShowModal(true); }}
+          className="w-full py-2 bg-slate-900 text-white rounded-lg text-xs font-bold hover:bg-indigo-600 transition-all"
+        >
+          Order Now
+        </button>
+      </motion.div>
+    ))}
+  </div>
+</div>
 
       {/* Footer & WhatsApp (එහෙමමයි) */}
       <footer className="mt-20 py-10 border-t text-center">

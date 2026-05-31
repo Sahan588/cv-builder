@@ -9,10 +9,10 @@ function About() {
         animate={{ opacity: 1, y: 0 }}
         className="max-w-3xl mx-auto bg-white p-10 rounded-3xl shadow-lg"
       >
-        {/* Logo එක මෙතනට එකතු කළා */}
+       {/* Logo එක මෙතනට එකතු කළා */}
         <div className="flex justify-center mb-8">
           <img 
-            src="./logo_helper.png" 
+            src="/Cv_Design_Helper_logo_web.png" 
             alt="DesignHelper Logo" 
             className="w-32 h-auto hover:scale-105 transition-transform duration-300" 
           />
